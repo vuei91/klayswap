@@ -1,0 +1,26 @@
+.swapBtn {
+  width: 180px;
+  position: relative;
+  text-align: right;
+  padding: 30px;
+  cursor: pointer;
+  line-height: 1.4;
+  background-color: #b39c7d;
+}
+
+.btnName {
+  height: 100%;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-end;
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}

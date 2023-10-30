@@ -1,11 +1,11 @@
 import Description from "@/components/Description";
 import Ticket from "@/components/Ticket";
 import React from "react";
-import { container, bg } from "./page.module.css";
+import { container } from "./page.module.css";
 
 const Home = () => {
   return (
-    <div className={bg}>
+    <div>
       <div className={container}>
         <Description />
         <Ticket />

@@ -1,0 +1,14 @@
+.content {
+  width: calc(100% - 180px);
+  position: relative;
+  padding: 30px 40px;
+  background-color: white;
+}
+
+.content:before {
+  z-index: 33;
+  content: " ";
+  width: 15px;
+  height: 7px;
+  position: absolute;
+}
