@@ -6,7 +6,7 @@ import { ticket, blurBg } from "./ticket.module.css";
 const Ticket = () => {
   return (
     <div className={ticket}>
-      <div class={blurBg}></div>
+      <div className={blurBg}></div>
       <SwapContent />
       <SwapBtn />
     </div>
