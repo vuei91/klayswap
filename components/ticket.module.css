@@ -1,0 +1,7 @@
+.ticket {
+  height: auto;
+  min-height: 320px;
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: #eee;
+}
