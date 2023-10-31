@@ -13,8 +13,9 @@ const SwapContent = () => {
       chain: klaytn,
       transport: custom(window.ethereum),
     });
+    const KSLP_KLAY_OETH = "0x27f80731dddb90c51cd934e9bd54bff2d4e99e8a";
     const _contract = getContract({
-      address: "0x27f80731dddb90c51cd934e9bd54bff2d4e99e8a",
+      address: KSLP_KLAY_OETH,
       abi: ExchangeABI,
       publicClient,
     });

@@ -18,8 +18,9 @@ const ToPart = ({ oETH }) => {
       chain: klaytn,
       transport: custom(window.ethereum),
     });
+    const OETH = "0x34d21b1e550d73cee41151c77f3c73359527a396";
     const contract = getContract({
-      address: "0x34d21b1e550d73cee41151c77f3c73359527a396",
+      address: OETH,
       abi: TokenABI,
       publicClient,
     });
