@@ -20,14 +20,12 @@ const SwapContent = () => {
     });
     setContract(_contract);
   }, []);
-  const [myToken, setMyToken] = useState(0);
   const [contract, setContract] = useState();
   const [oETH, setOETH] = useState(0);
   const change = (e) => {
     const klay = e.target.value;
     contract.read.getCurrentPool().then((LP) => {
       const [klayLP, oEthLP] = LP;
-      console.log(LP);
       const oETH = (klay * parseInt(oEthLP)) / parseInt(klayLP);
       setOETH(oETH);
     });
