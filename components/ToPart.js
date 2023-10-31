@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import {
   toLabel,
   toAmount,
@@ -7,8 +8,28 @@ import {
   toImage,
   toInput,
 } from "./toPart.module.css";
+import { createPublicClient, custom, getContract } from "viem";
+import { klaytn } from "viem/chains";
+import TokenABI from "@/abi/TokenABI.json";
 
 const ToPart = () => {
+  useEffect(() => {
+    const publicClient = createPublicClient({
+      chain: klaytn,
+      transport: custom(window.ethereum),
+    });
+    const contract = getContract({
+      address: "0x34d21b1e550d73cee41151c77f3c73359527a396",
+      abi: TokenABI,
+      publicClient,
+    });
+    contract.read
+      .balanceOf([window.ethereum.selectedAddress])
+      .then((balance) => {
+        setMyToken(parseInt(balance) / 1e18);
+      });
+  }, []);
+  const [myToken, setMyToken] = useState(0);
   return (
     <div className={toContainer}>
       <div className={toLabel}>To</div>
@@ -26,7 +47,7 @@ const ToPart = () => {
       </div>
       <div className={toAmount}>
         <div>
-          보유 <span>0</span>
+          보유 <span>{myToken}</span>
         </div>
         <div>oETH</div>
       </div>
