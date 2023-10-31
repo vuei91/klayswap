@@ -36,6 +36,7 @@
 }
 
 .toInput {
+  width: 400px;
   height: 32px;
   padding: 0;
   display: block;

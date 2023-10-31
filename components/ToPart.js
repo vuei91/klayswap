@@ -12,7 +12,7 @@ import { createPublicClient, custom, getContract } from "viem";
 import { klaytn } from "viem/chains";
 import TokenABI from "@/abi/TokenABI.json";
 
-const ToPart = () => {
+const ToPart = ({ oETH }) => {
   useEffect(() => {
     const publicClient = createPublicClient({
       chain: klaytn,
@@ -35,7 +35,13 @@ const ToPart = () => {
       <div className={toLabel}>To</div>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div>
-          <input type="text" placeholder="0" className={toInput} />
+          <input
+            type="text"
+            placeholder="0"
+            className={toInput}
+            value={oETH}
+            readOnly
+          />
         </div>
         <div className={toIcon}>
           <img

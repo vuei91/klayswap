@@ -11,7 +11,7 @@ import {
 import { createPublicClient, custom } from "viem";
 import { klaytn } from "viem/chains";
 
-const FromPart = () => {
+const FromPart = ({ change }) => {
   useEffect(() => {
     const publicClient = createPublicClient({
       chain: klaytn,
@@ -36,6 +36,7 @@ const FromPart = () => {
             placeholder="0"
             className={fromInput}
             inputMode="decimal"
+            onChange={change}
           />
         </div>
         <div className={fromIcon}>
