@@ -23,7 +23,7 @@ const SwapBtn = () => {
   const swap = () => {
     const OETH = "0x34d21b1e550d73cee41151c77f3c73359527a396";
     contract.write.exchangeKlayPos({
-      value: BigInt(10e18),
+      value: BigInt(1e18),
       args: [OETH, 1, []],
     });
   };
