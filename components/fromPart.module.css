@@ -1,0 +1,54 @@
+.fromContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-grow: 2;
+}
+
+.fromLabel {
+  color: #b39c7d;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.fromAmount {
+  color: #b39c7d;
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.fromIcon {
+  cursor: pointer;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fromImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.fromInput {
+  height: 32px;
+  padding: 0;
+  display: block;
+  flex: 1;
+  border: none;
+  background: none;
+  transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-property: font-size, padding-top, color;
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 32px;
+  outline: 0 none;
+  border-radius: 0 !important;
+  appearance: none;
+}
