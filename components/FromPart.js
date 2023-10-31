@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import {
   fromLabel,
   fromAmount,
@@ -7,8 +8,24 @@ import {
   fromImage,
   fromInput,
 } from "./fromPart.module.css";
+import { createPublicClient, custom } from "viem";
+import { klaytn } from "viem/chains";
 
 const FromPart = () => {
+  useEffect(() => {
+    const publicClient = createPublicClient({
+      chain: klaytn,
+      transport: custom(window.ethereum),
+    });
+    publicClient
+      .getBalance({
+        address: window.ethereum.selectedAddress,
+      })
+      .then((amount) => {
+        setMyToken(parseInt(amount) / 1e18);
+      });
+  }, []);
+  const [myToken, setMyToken] = useState(0);
   return (
     <div className={fromContainer}>
       <div className={fromLabel}>From</div>
@@ -31,7 +48,7 @@ const FromPart = () => {
       </div>
       <div className={fromAmount}>
         <div>
-          보유 <span>0</span>
+          보유 <span>{myToken}</span>
         </div>
         <div>KLAY</div>
       </div>
