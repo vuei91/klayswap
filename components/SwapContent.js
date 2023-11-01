@@ -6,8 +6,10 @@ import { content } from "./swapContent.module.css";
 import { createPublicClient, custom, getContract } from "viem";
 import { klaytn } from "viem/chains";
 import ExchangeABI from "@/abi/ExchangeABI.json";
+import useSWR from "swr";
 
 const SwapContent = () => {
+  const { mutate: setKlay } = useSWR("klay", null, { fallbackData: 0 });
   useEffect(() => {
     const publicClient = createPublicClient({
       chain: klaytn,
@@ -25,6 +27,7 @@ const SwapContent = () => {
   const [oETH, setOETH] = useState(0);
   const change = (e) => {
     const klay = e.target.value;
+    setKlay(klay);
     contract.read.getCurrentPool().then((LP) => {
       const [klayLP, oEthLP] = LP;
       const oETH = (klay * parseInt(oEthLP)) / parseInt(klayLP);

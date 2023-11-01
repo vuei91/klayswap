@@ -3,8 +3,10 @@ import { swapBtn, btnName } from "./swapBtn.module.css";
 import { createWalletClient, custom, getContract } from "viem";
 import { klaytn } from "viem/chains";
 import FactroyABI from "@/abi/FactoryABI.json";
+import useSWR from "swr";
 
 const SwapBtn = () => {
+  const { data: klay } = useSWR("klay", null, { fallbackData: 0 });
   useEffect(() => {
     const walletClient = createWalletClient({
       chain: klaytn,
@@ -23,7 +25,7 @@ const SwapBtn = () => {
   const swap = () => {
     const OETH = "0x34d21b1e550d73cee41151c77f3c73359527a396";
     contract.write.exchangeKlayPos({
-      value: BigInt(1e18),
+      value: BigInt(klay) * BigInt(1e18),
       args: [OETH, 1, []],
     });
   };
